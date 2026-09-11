@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover, user-scalable=no" />
+<title>Runsheet</title>
+<meta name="theme-color" content="#161311">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Runsheet">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAES0lEQVR42u3dP04bXRTGYTPKBhASXdoUVOyAFWU1WRE7oKJIm4WQCkURUbBn5nruec/zqyJF3yc89+H42PGfm/u727eTFNLiEghoCWgJaAloAS0BLQEtAS0BLaAloCWgJaAloAW0BLQEtAS0BLSAloCWgJaAloAW0BLQEtAS0NKfvrgE+/Xzx9dV/923779cvJ268XG6x2IG28oRiXnP/w/QEtAS0BLQEtACWgJaAloCWgJaQEtl8+KklV3jdRderAR0acCAAx2PGG6goyGDDXQkZLCBjoQMNtCRkMFuDHok5DWQZvt5gG6KeSSWKj8n0IUxHwmj8s8ONAxgA70vgAoH74NtmoFec+AVD7vL7TynBeb6hzzbMysm9MGYk6ZV59seOaG7H+iltydtUkdN6EsOp8PTWB2vx+LwcrvkdqZM6gVmqJNQLzBDnYR6gRnqJNSLw4Q6qbKgz50iMK+7HlWn9AIz1EmoF5ihTkK9dD4sqPOuUynQviXKdW83oU3n3terDOhzpgTM41BXmdI+fVQmtOlsSgNtD3QdgfbMxme9vjw7j6QJ3Xk6v2PeE3X16zk1aNP5/Mn8+vJ8tWk987l4lsMKElVp0F3Xjc/Qbp3Wla/rtKCtG9sm8MPjU8vzKTuhO07na2Kuen3t0HZjO7TmbfSqAbT9OWZvrnBOJSd0p/35SMwVr7OVA2YrhwS0TOeOoD0grIV5tvMqN6HTHxDOhrna9bZyFMQsoKOyNwNt1QAaMJiBjsJ8DdQwA31VYCNRexAI9CHT8mh4pjPQu0/LvVFbNYA+/K5/L9QwAz3NHrsVNcxAT7efrkXtQSDQcahNZ6D/atSru0ajrrpq+I6VjR356q5RqJP35tlejWflGIzag0Cg7dQCekbUpjPQUz1Q2YI6AbNvkg18oDFy/ag+mWd8e5aVw0pg5YDaLwnQAfvdXggrYK76cRLTgp717fNbMaZM5lnPp/TKcdQUWYuyCubKH/Zjh7YD26G73619hvrh8enD3yX9Asx8LuUn9NF3j/+D+/7nSpirf7bgYhrsh/pfcNNWk9nPI2KHnmGqJMBN+OTXJWUq+Bje8Zgr3Ft6lkNRlQFtSpvOLSc01L2vVynQXb+s3nVvvkOb0n2vU+x3rEC9z/XxHStQwww01DDboe3UrkMW6EumSHfUl9z+ys8mlZ/QUMMct3JADXPcDg01zKfT6XRzf3f71vmBT+K/Pna+BnHPclx6OGnTuvsvdNyE3gK18uF2u71tJvSWw6o6rWFuMKG3Iq1w4Mm3DeiBk3cmAEm3BejGGEAGeviePBJJlZ8T6DDUsz8Y7fYun5agrwHp6Lq+Xa016ETY3d93CXQIbG8gBjoCNshAR8AGGejyuCEGujRwgIEuixxeoKUP+ThdAS0BLQEtAS2gJaAloCWgJaAFtAS0BLQEtAS0gJaAloCWgJaAFtAS0BLQEtAS0AJaAlo6pN/WBTzVSD0u9gAAAABJRU5ErkJggg==">
+<link rel="manifest" href='data:application/manifest+json,{"name":"Runsheet","short_name":"Runsheet","display":"standalone","orientation":"any","background_color":"#161311","theme_color":"#161311","start_url":"./","icons":[{"src":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAEk0lEQVR42u3dMXITQRCFYbzFBVyucuaUwJFv4BNxGk7kGzhyQMpBTERAYUDSzo6m+31/RBUFpZ15f3ePtFrd3N/dvn8CQtksAQgAEAAgAEAAgAAAAQACAAQACAAQACAAQACAAAABAAIABAAIABAAIABAAIAAAAEAAgAEAAgAEAAgAEAAgAAAAYA5fLYEx/L928Ouf//l6w+LeCA3fiBj3fATwQgk/Af9fyAAQAAQACAAQACAAAABAAIABAAIABAAIADQCXeDDmTWDWvuDCVAVOAJQQChJwMBBJ8IBBB6MhBA8IkwBm+DhoS/+7XpAAuH49LKu+JrIoDgXzVY1V4vAZqH/9oB6nANBCgYnNVC4wFcBDg8KFVCknCNBJgYjKqhSLteAgwOQ5cgJF/7/9iEv38ALrmWlM8M2neAczeye+WzHkEdwGbvv8bunaBtBzhn41LfArRGTTuAjR1/7V07wSb82aRLsAk/kiXYhB/JEmw2Gslr00KAUyuS8I9boy5dYBN+JEuwCT+SJdhsJJLXrqwAvuBtL3QAFcwaJgpwSsUR/rkSVO0CW8fww95Ej0CqvzVtKYDRxyikAwAEUP2tcZgADr/n8/b6Yq9SOoDq/3H4j5Cg01qXEED131f5315fpneDKnvmEGwkcgg2/uSEfFQ36LLmywtg/Dmmws/oBhX2rnwHUP0vC/Tj07O1dwYQfmcAgADmf9U/cw9Ld4D0+X+F8FffAyOQ8BuBIPwEAAjgAKz6Z+1l2Q6QeABeNfyV98IIJPxGIAg/AQACYGQlVv0J0C78MyUQfgIsWflnSCD8BFh67DlSAuEnQImZ33dsCRB/4B0tgepPgDLhHy2B8BOgXPhHSSD8BFiCPcGaJY/wE6CdBCDAWRx9i+0sCTpUfz+SdwAr3GJ7tAQpo8/Kt0sbga4kgbmfALESCD8BdAIQoNrha4QE3ap/9e9uLy3AioenmZ2gw+iz+veFjUCTJTD3E4AEwk+ADjNoelA7PLtpeQFWnyFHS9BJqgrPC2oxAl27Eo0KbaXwd3lynzPAIhKY+wlQupXuCXHH8FfZszYdYJWWnFDJOz24uIwAlR7A+jcJHp+e//g71Z8ALSvTv4L+688Vw9/tsfUOwRMk+CjoDr1rcHN/d/verQL58WxrH90B/LqMNW0rgOpub+I7wCkLrQsYfeIPwSSwhm0FMArZCx1ABbN2yQKcWnlIcFz4q3fi8h2ABMIfPwKRQPidAcy11iZZgHMqEgn2rUmnd+BadQASCH/8CEQC4Y8/A5BA+E+l3O3QRx7qUj5dti7NO8ClG5fQDYQ/qAPsCXa3jbcGgR1gz0Z26gbCH94B9oa6ahjSrpcAB1f2KsFIuEYCXDEkKwal2/UQoEBoVghOh2sgQPEAzQxTtddLgFARRoRsxddEACKURvB/x6MRgwIi/DpAZDcQfALEySD0BIgUQfAJECeD0BMgSgiBJ0CMFMJOAOAwfA4AAgAEAAgAEAAgAEAAgAAAAQACAAQACAAQACAAQACAAAABAAIABAAIABAAIABAAIAAAAEAAgAEAAgAEACYzk/rqWGMaRySFgAAAABJRU5ErkJggg==","sizes":"192x192","type":"image/png"},{"src":"data:image/png;base64,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","sizes":"512x512","type":"image/png","purpose":"any maskable"}]}'>
+<style>
+  :root{
+    --soil:#161311; --soil2:#1F1A17; --soil3:#2A2320;
+    --bone:#ECE3D2; --dust:#9A8E7C; --dust2:#6f665a;
+    --amber:#F0A62E; --amber-dim:#b47f2a; --clay:#C7563B;
+    --line:rgba(236,227,210,.10); --line2:rgba(236,227,210,.16); --ok:#7FA05A;
+    --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,system-ui,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{background:var(--soil); color:var(--bone); font-family:var(--sans);
+    font-size:16px; line-height:1.5; -webkit-font-smoothing:antialiased; -webkit-tap-highlight-color:transparent;
+    padding-top:env(safe-area-inset-top);}
+  button{font-family:inherit; cursor:pointer; color:inherit}
+  textarea,input,select{font-family:inherit; font-size:16px; color:var(--bone)}
+  ::selection{background:var(--amber); color:var(--soil)}
+  .wrap{max-width:760px; margin:0 auto; padding:0 18px calc(120px + env(safe-area-inset-bottom))}
+
+  header{position:sticky; top:0; z-index:20; background:rgba(22,19,17,.94); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); padding-top:env(safe-area-inset-top)}
+  .bar{max-width:760px; margin:0 auto; padding:13px 18px; display:flex; align-items:center; gap:10px}
+  .brand{display:flex; align-items:baseline; gap:9px; margin-right:auto}
+  .brand h1{font-size:20px; font-weight:800; letter-spacing:-.02em; margin:0}
+  .brand .tag{font-family:var(--mono); font-size:11px; color:var(--dust)}
+  .iconbtn{background:transparent; border:1px solid var(--line2); border-radius:9px; padding:9px 12px; font-size:13px; font-weight:600; color:var(--bone); min-height:40px}
+  .iconbtn:active{background:var(--soil3)}
+
+  .card{background:var(--soil2); border:1px solid var(--line); border-radius:16px; padding:18px; margin-top:20px}
+  label.f{display:block; font-size:12px; color:var(--dust); margin:0 0 7px 2px; font-weight:600}
+  .dump{width:100%; min-height:150px; resize:vertical; background:var(--soil); border:1px solid var(--line2); border-radius:12px; padding:14px; color:var(--bone); line-height:1.55; outline:none}
+  .dump:focus{border-color:var(--amber-dim)}
+  .dump::placeholder{color:var(--dust2)}
+  .row{display:flex; gap:12px; margin-top:14px; flex-wrap:wrap}
+  .col{flex:1 1 150px; min-width:0}
+  select,.ti{width:100%; background:var(--soil); border:1px solid var(--line2); border-radius:11px; padding:12px 13px; outline:none; min-height:46px; appearance:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' stroke='%239A8E7C' stroke-width='1.6' fill='none' stroke-linecap='round'/></svg>"); background-repeat:no-repeat; background-position:right 13px center}
+  .ti{background-image:none}
+  select:focus,.ti:focus{border-color:var(--amber-dim)}
+  .go{margin-top:16px; width:100%; background:var(--amber); color:#231a0a; border:none; border-radius:12px; padding:15px; font-size:16px; font-weight:800; min-height:52px}
+  .go:disabled{opacity:.4}
+  .go:active:not(:disabled){transform:translateY(1px)}
+  .ghost{background:transparent; border:1px solid var(--line2); color:var(--bone); border-radius:12px; padding:13px; font-size:15px; font-weight:700; min-height:48px; width:100%}
+  .ghost:active{background:var(--soil3)}
+  .hint{font-size:12.5px; color:var(--dust); margin:10px 2px 0}
+
+  .modebtns{display:flex; border:1px solid var(--line2); border-radius:10px; overflow:hidden}
+  .modebtns button{background:transparent; border:none; padding:10px 13px; font-size:13px; font-weight:600; color:var(--dust); min-height:42px; flex:1}
+  .modebtns button.on{background:var(--soil3); color:var(--bone)}
+
+  #out{margin-top:22px; display:none}
+  .sect{margin-top:24px}
+  .sect>.h{display:flex; align-items:center; gap:10px; margin:0 2px 12px}
+  .sect>.h .lab{font-size:13px; font-weight:800}
+  .sect>.h .sub{font-family:var(--mono); font-size:11px; color:var(--dust); margin-left:auto}
+
+  .opt{background:var(--soil2); border:1px solid var(--line); border-radius:12px; padding:13px 14px; margin-bottom:9px; display:flex; align-items:flex-start; gap:12px}
+  .opt.pick{border-color:var(--amber); background:rgba(240,166,46,.07)}
+  .opt .key{font-family:var(--mono); font-size:12px; color:var(--dust); padding-top:2px; min-width:16px}
+  .opt .body{flex:1; line-height:1.5}
+  .opt .rec{font-family:var(--mono); font-size:10px; color:var(--amber); border:1px solid var(--amber-dim); border-radius:5px; padding:1px 5px; margin-left:6px; white-space:nowrap}
+  .opt .copy{background:transparent; border:1px solid var(--line2); border-radius:8px; padding:6px 9px; font-size:12px; color:var(--dust); align-self:center}
+
+  .finish{display:flex; align-items:baseline; gap:12px; background:var(--soil2); border:1px solid var(--line); border-radius:12px; padding:14px 16px}
+  .finish .t{font-family:var(--mono); font-size:34px; font-weight:700; color:var(--amber)}
+  .finish .l{font-size:13px; color:var(--dust)}
+  .finish .prog{margin-left:auto; font-family:var(--mono); font-size:13px; color:var(--dust)}
+
+  .scriptbar{display:flex; align-items:center; gap:8px; margin:0 2px 12px}
+  .scriptbar .modebtns{margin-left:auto; flex:0 0 auto; width:auto}
+  .scriptbar .modebtns button{flex:0 0 auto}
+
+  .beat{background:var(--soil2); border:1px solid var(--line); border-radius:12px; padding:14px 15px 15px; margin-bottom:10px}
+  .beat .top{display:flex; align-items:center; gap:11px; margin-bottom:9px}
+  .chk{width:24px; height:24px; border:1.6px solid var(--line2); border-radius:7px; background:var(--soil); flex:0 0 auto; display:flex; align-items:center; justify-content:center}
+  .chk svg{width:14px; height:14px; opacity:0; stroke:var(--soil)}
+  .beat.done .chk{background:var(--ok); border-color:var(--ok)}
+  .beat.done .chk svg{opacity:1}
+  .beat.done .lines,.beat.done .bname{opacity:.4; text-decoration:line-through; text-decoration-color:var(--dust2)}
+  .bname{font-family:var(--mono); font-size:11.5px; color:var(--dust)}
+  .lines{line-height:1.62; font-size:17px}
+  .lines p{margin:0 0 4px}
+  .beat textarea{width:100%; min-height:80px; background:var(--soil); border:1px solid var(--line2); border-radius:9px; padding:11px; line-height:1.55; resize:vertical; outline:none}
+
+  .cue-pause{font-family:var(--mono); font-size:.72em; color:var(--amber); background:rgba(240,166,46,.12); border-radius:5px; padding:1px 6px; margin:0 2px; vertical-align:middle}
+  .cue-clip{font-family:var(--mono); font-size:.8em; color:var(--dust)}
+  .emph{color:var(--bone); font-weight:800; background:linear-gradient(transparent 62%, rgba(240,166,46,.35) 0)}
+
+  .about{background:var(--soil2); border-left:3px solid var(--amber); border-radius:0 10px 10px 0; padding:13px 15px; line-height:1.5}
+  .about b{color:var(--dust); font-weight:600; font-size:12px; display:block; margin-bottom:4px}
+  .gaps{border:1px dashed rgba(199,86,59,.5); border-radius:12px; padding:13px 15px; background:rgba(199,86,59,.06)}
+  .gaps b{color:var(--clay); font-size:12px; display:block; margin-bottom:8px}
+  .gaps li{margin:0 0 6px; line-height:1.45}
+  .gaps ul{margin:0; padding-left:18px}
+
+  .legend{display:flex; gap:16px; flex-wrap:wrap; font-size:11.5px; color:var(--dust); margin:2px 2px 0}
+  .legend span{display:inline-flex; align-items:center; gap:6px}
+
+  .actions{display:flex; gap:10px; margin-top:20px; flex-wrap:wrap}
+  .actions .go{flex:1; margin-top:0}
+  .actions .ghost{flex:1}
+  .tprompt{margin-top:12px; width:100%; background:transparent; color:var(--amber); border:1px solid var(--amber-dim); border-radius:12px; padding:15px; font-size:16px; font-weight:800; min-height:52px}
+
+  .status{margin-top:20px; padding:16px; border-radius:12px; background:var(--soil2); border:1px solid var(--line); color:var(--dust); font-family:var(--mono); font-size:13px}
+  .status.err{border-color:rgba(199,86,59,.5); color:#e6a494}
+  .dots::after{content:''; animation:dots 1.2s steps(4,end) infinite}
+  @keyframes dots{0%{content:''}25%{content:'.'}50%{content:'..'}75%{content:'...'}}
+
+  .toast{position:fixed; left:50%; bottom:calc(24px + env(safe-area-inset-bottom)); transform:translateX(-50%) translateY(20px); background:var(--soil3); border:1px solid var(--line2); color:var(--bone); padding:11px 18px; border-radius:10px; font-size:14px; font-weight:600; opacity:0; pointer-events:none; transition:.2s; z-index:80}
+  .toast.show{opacity:1; transform:translateX(-50%) translateY(0)}
+
+  .scrim{position:fixed; inset:0; background:rgba(10,8,7,.6); z-index:40; display:none}
+  .scrim.open{display:block}
+  .drawer{position:fixed; top:0; right:0; height:100%; width:min(380px,88vw); background:var(--soil2); border-left:1px solid var(--line2); z-index:41; transform:translateX(100%); transition:transform .22s ease; display:flex; flex-direction:column}
+  .drawer.open{transform:none}
+  .drawer .dh{padding:calc(16px + env(safe-area-inset-top)) 18px 16px; border-bottom:1px solid var(--line); display:flex; align-items:center}
+  .drawer .dh h3{margin:0; font-size:16px; font-weight:800}
+  .drawer .dh button{margin-left:auto; background:transparent; border:none; color:var(--dust); font-size:24px; line-height:1}
+  .dbody{overflow:auto; padding:14px; flex:1}
+  .run{background:var(--soil); border:1px solid var(--line); border-radius:10px; padding:12px; margin-bottom:9px}
+  .run .rt{font-weight:600; font-size:14px; line-height:1.35}
+  .run .rm{font-family:var(--mono); font-size:11px; color:var(--dust); margin-top:5px; display:flex; gap:10px; flex-wrap:wrap}
+  .run .ra{display:flex; gap:8px; margin-top:10px}
+  .run .ra button{flex:1; background:var(--soil3); border:none; border-radius:8px; padding:9px; font-size:12.5px; font-weight:600; color:var(--bone)}
+  .run .ra button.del{background:transparent; border:1px solid rgba(199,86,59,.4); color:#d68e7e; flex:0 0 auto; padding:9px 12px}
+  .empty{color:var(--dust); font-size:13px; text-align:center; padding:40px 20px; line-height:1.5}
+
+  .setrow{margin-bottom:16px}
+  .setrow small{display:block; color:var(--dust); font-size:12px; margin-top:6px; line-height:1.45}
+  .divider{height:1px; background:var(--line); margin:18px 0}
+
+  #tele{position:fixed; inset:0; background:#000; z-index:60; display:none; flex-direction:column}
+  #teleScroll{flex:1; overflow:auto; padding:44vh 8vw; -webkit-overflow-scrolling:touch}
+  #teleScroll .tb{margin-bottom:1.1em}
+  #teleScroll .tlab{font-family:var(--mono); font-size:.42em; color:var(--amber-dim); margin-bottom:.25em}
+  #teleScroll .tline{color:#f4ecdd; font-weight:600; line-height:1.28; margin:0 0 .28em}
+  #teleScroll .cue-pause{font-size:.5em}
+  .telectl{display:flex; align-items:center; gap:10px; padding:14px 16px calc(14px + env(safe-area-inset-bottom)); background:#0c0b0a; border-top:1px solid #241f1b}
+  .telectl button{background:#1b1815; border:1px solid #2c2621; border-radius:10px; color:var(--bone); padding:12px 15px; font-weight:700; min-height:48px; font-size:15px}
+  .telectl .play{background:var(--amber); color:#231a0a; border:none; min-width:92px}
+  .telectl .sp{display:flex; align-items:center; gap:9px; flex:1}
+  .telectl input[type=range]{flex:1; accent-color:var(--amber)}
+  .telectl .val{font-family:var(--mono); font-size:12px; color:var(--dust); min-width:56px; text-align:right}
+  .teletop{position:absolute; top:0; left:0; right:0; display:flex; gap:10px; padding:calc(12px + env(safe-area-inset-top)) 14px 12px; pointer-events:none}
+  .teletop button{pointer-events:auto; background:rgba(20,17,15,.7); border:1px solid #2c2621; border-radius:9px; color:var(--dust); padding:9px 12px; font-weight:700; min-height:40px}
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <div class="brand"><h1>Runsheet</h1><span class="tag">script &amp; teleprompter</span></div>
+    <button class="iconbtn" id="newBtn">New</button>
+    <button class="iconbtn" id="savedBtn">Saved</button>
+    <button class="iconbtn" id="setBtn">&#9881;</button>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="card" id="inputCard">
+    <div class="modebtns" id="inMode" style="margin-bottom:16px">
+      <button data-in="paste" class="on">Paste script</button>
+      <button data-in="dump">Brain dump</button>
+    </div>
+
+    <div id="pastePanel">
+      <label class="f" for="pasteTitle">Title <span style="color:var(--dust2)">(optional)</span></label>
+      <input id="pasteTitle" class="ti" placeholder="e.g. Ard Rock, take two" style="margin-bottom:14px" />
+      <label class="f" for="pasteBody">Script</label>
+      <textarea id="pasteBody" class="dump" style="min-height:210px" placeholder="Paste a script.
+
+Beat labels on their own line become sections:
+[HOOK]   Setup   Button
+
+Cues get coloured automatically:
+[pause]   **emphasis**   [clip: the fall]"></textarea>
+      <button class="go" id="loadBtn" disabled>Load script</button>
+      <p class="hint">Beat headings (bracketed, capitalised, or ending in a colon) split the script into sections you can tick off and read from the teleprompter.</p>
+    </div>
+
+    <div id="dumpPanel" style="display:none">
+      <label class="f" for="dump">Brain dump</label>
+      <textarea id="dump" class="dump" placeholder="Talk it out. Rant, fragments, a voice-memo transcript. The story's in there somewhere."></textarea>
+      <div class="row">
+        <div class="col"><label class="f" for="platform">Platform</label>
+          <select id="platform"><option>Shorts / Reels</option><option>Long-form YouTube</option><option>Podcast</option></select></div>
+        <div class="col"><label class="f" for="tone">Tone</label>
+          <select id="tone"><option>Comedic, self-deprecating</option><option>Comedic + hyped</option><option>Reflective</option><option>Deadpan</option><option>Hype / triumphant</option><option>Dark</option></select></div>
+      </div>
+      <div class="row"><div class="col" style="flex-basis:100%">
+        <label class="f" for="take">Leave them with <span style="color:var(--dust2)">(optional)</span></label>
+        <input id="take" class="ti" placeholder="e.g. anyone can take on the hard version" />
+      </div></div>
+      <button class="go" id="goBtn" disabled>Script this</button>
+      <p class="hint" id="genHint">Generates with your own Anthropic API key. Add one in Settings to switch this on.</p>
+    </div>
+  </div>
+
+  <div id="statusSlot"></div>
+  <div id="out"></div>
+</div>
+
+<div class="scrim" id="scrim"></div>
+
+<aside class="drawer" id="drawer">
+  <div class="dh"><h3>Saved runs</h3><button id="closeDrawer">&times;</button></div>
+  <div class="dbody" id="runs"></div>
+  <div style="padding:14px; border-top:1px solid var(--line); display:flex; gap:10px">
+    <button class="ghost" id="exportAll" style="flex:1">Export all</button>
+    <button class="ghost" id="importAll" style="flex:1">Import</button>
+  </div>
+</aside>
+
+<aside class="drawer" id="setDrawer">
+  <div class="dh"><h3>Settings</h3><button id="closeSet">&times;</button></div>
+  <div class="dbody">
+    <div class="setrow">
+      <label class="f">Anthropic API key <span style="color:var(--dust2)">(optional)</span></label>
+      <input id="apiKey" class="ti" type="password" placeholder="sk-ant-..." autocomplete="off" />
+      <small>Enables Brain dump &rarr; generate. Stored only on this device, in this app. Leave blank to use paste mode only.</small>
+    </div>
+    <div class="setrow">
+      <label class="f">Model</label>
+      <input id="apiModel" class="ti" placeholder="claude-sonnet-4-6" />
+      <small>Default claude-sonnet-4-6. For cheaper/faster, try claude-haiku-4-5.</small>
+    </div>
+    <button class="go" id="saveSet" style="margin-top:0">Save settings</button>
+    <div class="divider"></div>
+    <div class="setrow">
+      <label class="f">Install on home screen</label>
+      <small>In Safari: tap the Share button, then &ldquo;Add to Home Screen.&rdquo; It opens full-screen like an app and keeps your saved scripts on this device.</small>
+    </div>
+    <div class="divider"></div>
+    <button class="ghost" id="wipe" style="border-color:rgba(199,86,59,.4); color:#d68e7e">Delete all saved scripts</button>
+  </div>
+</aside>
+
+<div id="tele">
+  <div class="teletop"><button id="teleMinus">A&minus;</button><button id="telePlus">A+</button></div>
+  <div id="teleScroll"></div>
+  <div class="telectl">
+    <button class="play" id="telePlay">Play</button>
+    <div class="sp"><input type="range" id="teleSpeed" min="8" max="140" value="46" /><span class="val" id="teleSpeedVal">46 px/s</span></div>
+    <button id="teleExit">Done</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+"use strict";
+const $=s=>document.querySelector(s);
+const DB_KEY="runsheet.v2";
+let db={scripts:[],settings:{model:"claude-sonnet-4-6",key:""}};
+let current=null, scriptMode="read";
+
+function loadDB(){ try{const r=localStorage.getItem(DB_KEY); if(r) db=JSON.parse(r);}catch(e){}
+  db.settings=db.settings||{}; db.settings.model=db.settings.model||"claude-sonnet-4-6"; db.settings.key=db.settings.key||""; db.scripts=db.scripts||[]; }
+function persist(){ try{localStorage.setItem(DB_KEY,JSON.stringify(db)); return true;}catch(e){ return false; } }
+function toast(m){ const t=$("#toast"); t.textContent=m; t.classList.add("show"); clearTimeout(t._t); t._t=setTimeout(()=>t.classList.remove("show"),1600); }
+
+function esc(s){return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function fmt(text){ let t=esc(text);
+  t=t.replace(/\[clip:([^\]]*)\]/gi,(_,x)=>'<span class="cue-clip">[clip:'+x+']</span>');
+  t=t.replace(/\[pause\]/gi,'<span class="cue-pause">pause</span>');
+  t=t.replace(/\*\*([^*]+)\*\*/g,'<span class="emph">$1</span>');
+  return t; }
+function beatLinesHTML(text){ return text.split("\n").filter(l=>l.trim()!=="").map(l=>"<p>"+fmt(l)+"</p>").join("")||'<p style="color:var(--dust2)">&mdash;</p>'; }
+function fmtNow(ts){ const d=new Date(ts); return d.toLocaleDateString(undefined,{month:"short",day:"numeric"})+" "+d.toLocaleTimeString(undefined,{hour:"numeric",minute:"2-digit"}); }
+
+/* ---- parse pasted script ---- */
+const BEAT_WORDS=["hook","setup","context","conflict","escalation","turn","reflection","resolution","takeaway","button","cta","premise","beat","beats","payoff","intro","outro"];
+function isHeader(line){
+  let t=line.trim(); if(!t) return null;
+  if(/^\**\[?\s*(clip|pause)\b/i.test(t)) return null;
+  let core=t.replace(/^\*+|\*+$/g,"").trim().replace(/^\[|\]$/g,"").trim();
+  const noColon=core.replace(/:$/,"").trim();
+  if(noColon.length===0||noColon.length>42) return null;
+  const bracketed=/^\[.*\]$/.test(t)||/^\*\*\[.*\]\*\*$/.test(t);
+  const endsColon=/:$/.test(core);
+  const allCaps=/[A-Z]/.test(noColon)&&noColon===noColon.toUpperCase()&&noColon.length<=42;
+  const known=BEAT_WORDS.some(w=>new RegExp("^"+w+"\\b","i").test(noColon.replace(/[\/\-].*$/,"").trim()));
+  if(bracketed||endsColon||allCaps||known) return noColon.replace(/\w\S*/g,s=>s.charAt(0).toUpperCase()+s.slice(1).toLowerCase());
+  return null;
+}
+function parseScript(raw){
+  const lines=raw.replace(/\r/g,"").split("\n"); const beats=[]; let cur=null;
+  for(const ln of lines){ const h=isHeader(ln);
+    if(h){ cur={name:h,text:"",done:false}; beats.push(cur); continue; }
+    if(!cur){ cur={name:"Script",text:"",done:false}; beats.push(cur); }
+    cur.text+=(cur.text?"\n":"")+ln; }
+  beats.forEach(b=>b.text=b.text.replace(/^\n+|\n+$/g,""));
+  return beats.filter(b=>b.text.trim()!=="");
+}
+function estRuntime(beats){
+  const words=beats.map(b=>b.text.replace(/\[[^\]]*\]/g," ").replace(/\*/g," ")).join(" ").trim().split(/\s+/).filter(Boolean).length;
+  const secs=Math.round(words/2.6); return Math.floor(secs/60)+":"+String(secs%60).padStart(2,"0");
+}
+
+function newScriptFromBeats(title,beats,extra){
+  return Object.assign({ id:"s"+Date.now(), createdAt:Date.now(),
+    titles: title?[title]:["Untitled script"], hooks:[], recommendedHook:null,
+    beats, runtime:estRuntime(beats), about:"", gaps:[], pickTitle:title?0:null, pickHook:null }, extra||{});
+}
+function saveCurrent(){ if(!current) return;
+  const i=db.scripts.findIndex(s=>s.id===current.id);
+  if(i>=0) db.scripts[i]=current; else db.scripts.push(current);
+  persist(); }
+
+/* ---- load pasted ---- */
+function loadPasted(){
+  const raw=$("#pasteBody").value.trim(); if(!raw) return;
+  const beats=parseScript(raw); if(!beats.length) return;
+  current=newScriptFromBeats($("#pasteTitle").value.trim(),beats);
+  scriptMode="read"; clearStatus(); renderOut(); saveCurrent();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+/* ---- generation (own key) ---- */
+const SYS='You convert a raw brain dump into a working, record-ready short-form script. Find the real story in the mess and write spoken word, not essay prose. Short sentences, natural breath points. Use [pause] for silence, **double asterisks** around 1-3 words for emphasis, and [clip: short description] for footage cuts. Sound like a real person, not AI marketing copy: no corny hype, no rhetorical-question filler. Pick the structure that fits (Narrative: Hook/Setup/Escalation/Turn/Resolution/Button; Personal story: Hook/Context/Conflict/Reflection/Takeaway; Listicle: Hook/Premise/Beats/Payoff) and label beats. The hook earns the next 3 seconds. If the dump lacks an ending, stakes, or a point, say so in gaps instead of inventing it. Respect platform and tone. Return ONLY valid JSON, no fences: {"titles":["","",""],"hooks":[{"label":"A","text":""},{"label":"B","text":""}],"recommendedHook":"A","beats":[{"name":"Hook","text":"line\\nline"}],"runtime":"0:45","about":"one line","gaps":[]}';
+
+async function generate(){
+  const key=db.settings.key; if(!key){ toast("Add your API key in Settings"); return; }
+  const dump=$("#dump").value.trim(); if(!dump) return;
+  const meta={platform:$("#platform").value,tone:$("#tone").value,take:$("#take").value.trim()};
+  setStatus("loading","Mining the dump for the story");
+  $("#goBtn").disabled=true;
+  const userMsg="PLATFORM: "+meta.platform+"\nTONE: "+meta.tone+"\nLEAVE THEM WITH: "+(meta.take||"(you decide)")+"\n\nBRAIN DUMP:\n"+dump;
+  try{
+    const res=await fetch("https://api.anthropic.com/v1/messages",{ method:"POST",
+      headers:{ "content-type":"application/json","x-api-key":key,"anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true" },
+      body:JSON.stringify({ model:db.settings.model||"claude-sonnet-4-6", max_tokens:1200, system:SYS, messages:[{role:"user",content:userMsg}] }) });
+    if(!res.ok){ let msg="server "+res.status; try{const e=await res.json(); if(e.error&&e.error.message)msg=e.error.message;}catch(_){} throw new Error(msg); }
+    const data=await res.json();
+    const text=(data.content||[]).filter(b=>b.type==="text").map(b=>b.text).join("\n").trim();
+    let clean=text.replace(/```json/gi,"").replace(/```/g,"").trim();
+    const a=clean.indexOf("{"),b=clean.lastIndexOf("}"); if(a>=0&&b>a) clean=clean.slice(a,b+1);
+    const p=JSON.parse(clean);
+    current=newScriptFromBeats(null,(p.beats||[]).map(x=>({name:x.name||"Beat",text:x.text||"",done:false})),
+      { titles:p.titles||["Untitled"], hooks:p.hooks||[], recommendedHook:p.recommendedHook||null,
+        runtime:p.runtime||estRuntime((p.beats||[]).map(x=>({text:x.text||""}))), about:p.about||"", gaps:p.gaps||[],
+        pickTitle:null, pickHook:p.recommendedHook||null, meta });
+    clearStatus(); scriptMode="read"; renderOut(); saveCurrent();
+  }catch(err){ setStatus("err","Generate failed: "+err.message+". You can still paste a script instead."); }
+  finally{ $("#goBtn").disabled=false; }
+}
+function setStatus(kind,msg){ $("#statusSlot").innerHTML='<div class="status '+(kind==="err"?"err":"")+'">'+esc(msg)+(kind==="loading"?'<span class="dots"></span>':"")+"</div>"; }
+function clearStatus(){ $("#statusSlot").innerHTML=""; }
+
+/* ---- render ---- */
+function renderOut(){
+  const c=current, out=$("#out"); out.style.display="block"; out.innerHTML="";
+  if(c.titles&&c.titles.length){
+    out.appendChild(section("Titles",c.titles.length+" options",w=>{ c.titles.forEach((t,i)=>{
+      const el=div("opt"+(c.pickTitle===i?" pick":"")); el.innerHTML='<div class="body">'+esc(t)+'</div><button class="copy">Copy</button>';
+      el.querySelector(".body").onclick=()=>{c.pickTitle=(c.pickTitle===i?null:i);renderOut();saveCurrent();};
+      el.querySelector(".copy").onclick=e=>{e.stopPropagation();copy(t,e.target);}; w.appendChild(el); }); }));
+  }
+  if(c.hooks&&c.hooks.length){
+    out.appendChild(section("Hooks","first 3 seconds",w=>{ c.hooks.forEach(h=>{
+      const el=div("opt"+(c.pickHook===h.label?" pick":"")); const rec=c.recommendedHook===h.label?'<span class="rec">suggested</span>':"";
+      el.innerHTML='<div class="key">'+esc(h.label)+'</div><div class="body">'+esc(h.text)+rec+'</div><button class="copy">Copy</button>';
+      el.querySelector(".body").onclick=()=>{c.pickHook=(c.pickHook===h.label?null:h.label);renderOut();saveCurrent();};
+      el.querySelector(".copy").onclick=e=>{e.stopPropagation();copy(h.text,e.target);}; w.appendChild(el); }); }));
+  }
+  const sc=div("sect"); const done=c.beats.filter(b=>b.done).length;
+  sc.innerHTML='<div class="scriptbar"><span class="lab" style="font-size:13px;font-weight:800">Script</span>'+
+    '<div class="modebtns"><button data-m="read" class="'+(scriptMode==="read"?"on":"")+'">Read</button><button data-m="edit" class="'+(scriptMode==="edit"?"on":"")+'">Edit</button></div></div>'+
+    '<div class="legend"><span><span class="cue-pause">pause</span> silence</span><span><span class="emph">word</span> emphasis</span><span><span class="cue-clip">[clip: &hellip;]</span> footage</span></div>';
+  const bw=div(""); bw.style.marginTop="12px"; c.beats.forEach((b,i)=>bw.appendChild(beatEl(b,i))); sc.appendChild(bw);
+  sc.querySelectorAll(".modebtns button").forEach(btn=>btn.onclick=()=>{scriptMode=btn.dataset.m;renderOut();});
+  out.appendChild(sc);
+
+  const fin=div("sect"); fin.innerHTML='<div class="finish"><div class="t">'+esc(c.runtime)+'</div><div class="l">est. read time<br>at talking pace</div><div class="prog" id="progTxt">'+done+"/"+c.beats.length+" recorded</div></div>";
+  out.appendChild(fin);
+  if(c.about){ const a=div("sect"); a.innerHTML='<div class="about"><b>what this is really about</b>'+esc(c.about)+"</div>"; out.appendChild(a); }
+  if(c.gaps&&c.gaps.length){ const g=div("sect"); g.innerHTML='<div class="gaps"><b>gaps to fill before recording</b><ul>'+c.gaps.map(x=>"<li>"+esc(x)+"</li>").join("")+"</ul></div>"; out.appendChild(g); }
+
+  const act=div("actions");
+  const save=document.createElement("button"); save.className="go"; save.textContent="Save"; save.onclick=()=>{ saveCurrent(); toast(persist()?"Saved":"Saved (this session)"); };
+  const cp=document.createElement("button"); cp.className="ghost"; cp.textContent="Copy script"; cp.onclick=()=>copy(scriptToText(c),cp);
+  act.appendChild(save); act.appendChild(cp); out.appendChild(act);
+  const tp=document.createElement("button"); tp.className="tprompt"; tp.textContent="Open teleprompter"; tp.onclick=openTele; out.appendChild(tp);
+}
+function section(label,sub,fill){ const s=div("sect"); const h=div("h"); h.innerHTML='<span class="lab">'+esc(label)+'</span><span class="sub">'+esc(sub)+"</span>"; s.appendChild(h); const w=div(""); fill(w); s.appendChild(w); return s; }
+function div(cls){ const d=document.createElement("div"); if(cls)d.className=cls; return d; }
+function beatEl(b,i){ const el=div("beat"+(b.done?" done":""));
+  const top=div("top"); top.innerHTML='<div class="chk"><svg viewBox="0 0 24 24" fill="none" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></div><div class="bname">'+esc(b.name)+"</div>";
+  top.querySelector(".chk").onclick=()=>{ b.done=!b.done; el.classList.toggle("done",b.done); const p=$("#progTxt"); if(p)p.textContent=current.beats.filter(x=>x.done).length+"/"+current.beats.length+" recorded"; saveCurrent(); };
+  el.appendChild(top);
+  if(scriptMode==="edit"){ const ta=document.createElement("textarea"); ta.value=b.text; ta.oninput=()=>{b.text=ta.value; saveCurrent();}; el.appendChild(ta); }
+  else{ const l=div("lines"); l.innerHTML=beatLinesHTML(b.text); el.appendChild(l); }
+  return el;
+}
+function scriptToText(c){ const title=(c.pickTitle!=null&&c.titles[c.pickTitle])||c.titles[0]||"Script";
+  return title+"\n\n"+c.beats.map(b=>"["+b.name.toUpperCase()+"]\n"+b.text).join("\n\n"); }
+function copy(txt,btn){ navigator.clipboard&&navigator.clipboard.writeText(txt).then(()=>{ if(btn){const o=btn.textContent;btn.textContent="Copied";setTimeout(()=>btn.textContent=o,1100);} else toast("Copied"); }).catch(()=>toast("Copy failed")); }
+
+/* ---- teleprompter ---- */
+let teleRAF=null,telePlaying=false,teleFont=6.2,teleSpeed=46,teleAccum=0,teleLast=0;
+function openTele(){ const sc=$("#teleScroll"); sc.innerHTML="";
+  current.beats.forEach(b=>{ const blk=div("tb"); blk.innerHTML='<div class="tlab">'+esc(b.name)+"</div>"+b.text.split("\n").filter(l=>l.trim()).map(l=>'<p class="tline">'+fmt(l)+"</p>").join(""); sc.appendChild(blk); });
+  sc.style.fontSize=teleFont+"vh"; sc.scrollTop=0; $("#tele").style.display="flex"; telePlaying=false; $("#telePlay").textContent="Play"; }
+function teleTick(ts){ if(!telePlaying) return; if(!teleLast)teleLast=ts; const dt=(ts-teleLast)/1000; teleLast=ts; teleAccum+=teleSpeed*dt;
+  const sc=$("#teleScroll"); if(teleAccum>=1){ sc.scrollTop+=Math.floor(teleAccum); teleAccum-=Math.floor(teleAccum); }
+  if(sc.scrollTop+sc.clientHeight>=sc.scrollHeight-2){ togglePlay(false); return; } teleRAF=requestAnimationFrame(teleTick); }
+function togglePlay(f){ telePlaying=(typeof f==="boolean")?f:!telePlaying; $("#telePlay").textContent=telePlaying?"Pause":"Play"; teleLast=0;
+  if(telePlaying)teleRAF=requestAnimationFrame(teleTick); else if(teleRAF)cancelAnimationFrame(teleRAF); }
+$("#telePlay").onclick=()=>togglePlay(); $("#teleScroll").onclick=()=>togglePlay();
+$("#teleExit").onclick=()=>{ togglePlay(false); $("#tele").style.display="none"; };
+$("#telePlus").onclick=()=>{ teleFont=Math.min(12,teleFont+0.8); $("#teleScroll").style.fontSize=teleFont+"vh"; };
+$("#teleMinus").onclick=()=>{ teleFont=Math.max(3.2,teleFont-0.8); $("#teleScroll").style.fontSize=teleFont+"vh"; };
+$("#teleSpeed").oninput=e=>{ teleSpeed=+e.target.value; $("#teleSpeedVal").textContent=teleSpeed+" px/s"; };
+
+/* ---- saved drawer ---- */
+function renderRuns(){ const runs=$("#runs");
+  if(!db.scripts.length){ runs.innerHTML='<div class="empty">No saved scripts yet.<br>Load or generate one and it lands here.</div>'; return; }
+  const items=db.scripts.slice().sort((a,b)=>b.createdAt-a.createdAt); runs.innerHTML="";
+  items.forEach(it=>{ const title=(it.pickTitle!=null&&it.titles[it.pickTitle])||it.titles[0]||"Untitled";
+    const done=it.beats.filter(b=>b.done).length; const el=div("run");
+    el.innerHTML='<div class="rt">'+esc(title)+'</div><div class="rm"><span>'+esc(it.runtime||"—")+'</span><span>'+done+"/"+it.beats.length+' done</span><span>'+fmtNow(it.createdAt)+'</span></div><div class="ra"><button class="open">Open</button><button class="del">Delete</button></div>';
+    el.querySelector(".open").onclick=()=>{ current=it; scriptMode="read"; renderOut(); closeAll(); window.scrollTo({top:0,behavior:"smooth"}); };
+    el.querySelector(".del").onclick=()=>{ db.scripts=db.scripts.filter(s=>s.id!==it.id); persist(); if(current&&current.id===it.id){current=null;$("#out").style.display="none";} renderRuns(); };
+    runs.appendChild(el); });
+}
+/* ---- drawers ---- */
+function openDrawer(id){ $(id).classList.add("open"); $("#scrim").classList.add("open"); }
+function closeAll(){ $("#drawer").classList.remove("open"); $("#setDrawer").classList.remove("open"); $("#scrim").classList.remove("open"); }
+$("#savedBtn").onclick=()=>{ renderRuns(); openDrawer("#drawer"); };
+$("#setBtn").onclick=()=>{ $("#apiKey").value=db.settings.key||""; $("#apiModel").value=db.settings.model||""; openDrawer("#setDrawer"); };
+$("#closeDrawer").onclick=closeAll; $("#closeSet").onclick=closeAll; $("#scrim").onclick=closeAll;
+$("#newBtn").onclick=()=>{ current=null; $("#out").style.display="none"; $("#out").innerHTML=""; $("#pasteBody").value=""; $("#pasteTitle").value=""; if($("#dump"))$("#dump").value=""; if($("#take"))$("#take").value=""; $("#loadBtn").disabled=true; clearStatus(); window.scrollTo({top:0,behavior:"smooth"}); };
+
+$("#saveSet").onclick=()=>{ db.settings.key=$("#apiKey").value.trim(); db.settings.model=$("#apiModel").value.trim()||"claude-sonnet-4-6"; persist(); updateGenState(); toast("Settings saved"); closeAll(); };
+$("#wipe").onclick=()=>{ if(confirm("Delete all saved scripts on this device?")){ db.scripts=[]; persist(); current=null; $("#out").style.display="none"; renderRuns(); toast("All scripts deleted"); } };
+
+/* export / import */
+$("#exportAll").onclick=()=>{ const data=JSON.stringify({app:"runsheet",version:2,scripts:db.scripts},null,2);
+  copy(data); try{ const blob=new Blob([data],{type:"application/json"}); const url=URL.createObjectURL(blob); const a=document.createElement("a"); a.href=url; a.download="runsheet-backup.json"; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url),1000);}catch(e){} toast("Backup copied + downloaded"); };
+$("#importAll").onclick=()=>{ const raw=prompt("Paste a Runsheet backup (the exported JSON):"); if(!raw) return;
+  try{ const parsed=JSON.parse(raw); const incoming=parsed.scripts||parsed; if(!Array.isArray(incoming)) throw new Error("bad format");
+    const ids=new Set(db.scripts.map(s=>s.id)); let added=0; incoming.forEach(s=>{ if(s&&s.id&&!ids.has(s.id)){db.scripts.push(s);added++;} }); persist(); renderRuns(); toast("Imported "+added+" script(s)"); }
+  catch(e){ toast("Import failed — check the text"); } };
+
+/* input wiring */
+$("#pasteBody").addEventListener("input",()=>{ $("#loadBtn").disabled=$("#pasteBody").value.trim()===""; });
+$("#loadBtn").onclick=loadPasted;
+$("#dump").addEventListener("input",()=>{ updateGenState(); });
+$("#goBtn").onclick=generate;
+function updateGenState(){ const hasKey=!!db.settings.key; const hasText=$("#dump").value.trim()!==""; $("#goBtn").disabled=!(hasKey&&hasText);
+  $("#genHint").textContent=hasKey?"Generates with your saved API key. Costs a few cents per script.":"Generates with your own Anthropic API key. Add one in Settings to switch this on."; }
+$("#inMode").querySelectorAll("button").forEach(btn=>{ btn.onclick=()=>{ $("#inMode").querySelectorAll("button").forEach(b=>b.classList.remove("on")); btn.classList.add("on");
+  const paste=btn.dataset.in==="paste"; $("#pastePanel").style.display=paste?"block":"none"; $("#dumpPanel").style.display=paste?"none":"block"; if(!paste)updateGenState(); }; });
+
+loadDB(); updateGenState();
+</script>
+</body>
+</html>
